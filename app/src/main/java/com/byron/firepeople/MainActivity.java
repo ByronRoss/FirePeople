@@ -34,11 +34,10 @@ public class MainActivity extends AppCompatActivity {
                 p.setFirstName(firstName.getText().toString());
                 p.setLastName(lastName.getText().toString());
                 p.setReason(reason.getText().toString());
-                myRef.setValue(p);
+                myRef.push().setValue(p);
                 Intent i = new Intent(MainActivity.this, FirePeopleList.class);
                 startActivity(i);
             }
         });
-
     }
 }

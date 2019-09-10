@@ -18,10 +18,9 @@
 
 
             <ImageView
-                android:id="@+id/randomdude"
+                android:id="@+id/randomdud"
                 android:layout_width="398dp"
-                android:layout_height="395dp"
-                app:srcCompat="@drawable/randomdude" />
+                android:layout_height="395dp"/>
 
             <EditText
                 android:id="@+id/et_firedName"

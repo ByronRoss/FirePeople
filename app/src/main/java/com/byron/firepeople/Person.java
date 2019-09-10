@@ -27,4 +27,13 @@ public class Person {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", reason='" + reason + '\'' +
+                '}';
+    }
 }

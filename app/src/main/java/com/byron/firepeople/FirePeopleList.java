@@ -14,16 +14,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FirePeopleList extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Person");
-    String success;
-
-    Person pulledPeople = new Person();
     ListView lv_pulledPeople;
-    ArrayList<Person> people;
+    List<Person> people = new ArrayList<Person>();
     ArrayAdapter<Person> adapter;
 
     @Override
@@ -31,23 +29,24 @@ public class FirePeopleList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fire_people_list);
 
-        lv_pulledPeople = findViewById(R.id.lstV);
+
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                people.clear();
 
-                //Iterable<DataSnapshot> i = dataSnapshot.getChildren();
-
-                for (DataSnapshot d : dataSnapshot.getChildren())
+                for (DataSnapshot child : dataSnapshot.getChildren())
                 {
-                    pulledPeople= d.getValue(Person.class);
-                    Person p = d.getValue(Person.class);
-                    people.add(pulledPeople);
+                    Log.d("CHILDREN", child.getValue().toString());
+                    Person person = child.getValue(Person.class);
+                    people.add(person);
                 }
-                adapter = new ArrayAdapter<>(FirePeopleList.this,
-                        android.R.layout.simple_list_item_1);
+                lv_pulledPeople = findViewById(R.id.lstV);
+
+                adapter = new ArrayAdapter<Person>(FirePeopleList.this,
+                        android.R.layout.simple_list_item_1, people);
                 lv_pulledPeople.setAdapter(adapter);
             }
 
