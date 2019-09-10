@@ -29,8 +29,6 @@ public class FirePeopleList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fire_people_list);
 
-
-
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
