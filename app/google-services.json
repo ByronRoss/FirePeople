@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "797045797826",
+    "firebase_url": "https://firepeople-1aa5f.firebaseio.com",
+    "project_id": "firepeople-1aa5f",
+    "storage_bucket": "firepeople-1aa5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797045797826:android:890909362d0cae7b2cdc5b",
+        "android_client_info": {
+          "package_name": "com.byron.firepeople"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797045797826-gvbk2otnqitbanniplo0tq3vs9ifec3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.byron.firepeople",
+            "certificate_hash": "8883e788b93c2934bd36f5c9e330d31b028387f4"
+          }
+        },
+        {
+          "client_id": "797045797826-44rt3hsj7fbhebem2qelevujrl8460a1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwOs7zA9rB4Mn6PcLiJuM3eIOfOmNQam4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797045797826-44rt3hsj7fbhebem2qelevujrl8460a1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
