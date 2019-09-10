@@ -12,6 +12,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.NotNull;
+import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +23,15 @@ public class FirePeopleList extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Person");
     ListView lv_pulledPeople;
-    List<Person> people = new ArrayList<Person>();
+    List<Person> people = new ArrayList<>();
     ArrayAdapter<Person> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fire_people_list);
+
+        lv_pulledPeople = findViewById(R.id.lstV);
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
@@ -37,13 +41,11 @@ public class FirePeopleList extends AppCompatActivity {
 
                 for (DataSnapshot child : dataSnapshot.getChildren())
                 {
-                    Log.d("CHILDREN", child.getValue().toString());
                     Person person = child.getValue(Person.class);
                     people.add(person);
                 }
-                lv_pulledPeople = findViewById(R.id.lstV);
 
-                adapter = new ArrayAdapter<Person>(FirePeopleList.this,
+                adapter = new ArrayAdapter<>(FirePeopleList.this,
                         android.R.layout.simple_list_item_1, people);
                 lv_pulledPeople.setAdapter(adapter);
             }
